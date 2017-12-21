@@ -45,7 +45,7 @@ if PY2:
 
 setup(
     name='fhir.heart',
-    version='1.0.0a1.dev0',
+    version='1.0.0a1',
     description='Health Relationship Trust Profile (HEART) implementation for FHIR (Fast Healthcare Interoperability Resources) compliance '
     'for Healthcare System.',
     long_description=long_description,
