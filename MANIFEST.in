@@ -1,0 +1,4 @@
+graft src/fhir
+graft docs
+include *.rst
+global-exclude *.pyc
