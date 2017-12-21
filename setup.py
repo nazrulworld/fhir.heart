@@ -14,6 +14,8 @@ long_description = '\n\n'.join([
     open('README.rst').read(),
     open('CONTRIBUTORS.rst').read(),
     open('CHANGES.rst').read(),
+    open('SPECS.rst').read(),
+    open('LINKS.rst').read(),
 ])
 
 install_requires = [

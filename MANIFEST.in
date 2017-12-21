@@ -1,4 +1,8 @@
 graft src/fhir
 graft docs
+prune .cache
 include *.rst
 global-exclude *.pyc
+include LICENSE.GPL
+exclude *.cfg
+exclude requirements.txt
