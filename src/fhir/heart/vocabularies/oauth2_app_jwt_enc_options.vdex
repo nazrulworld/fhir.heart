@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>oauth2_app_jwt_enc_options</vocabIdentifier>
+    <term>
+        <termIdentifier>A128CBC-HS256</termIdentifier>
+        <caption>
+            <langstring language="en">A128CBC-HS256</langstring>
+            <langstring language="da">A128CBC-HS256</langstring>
+            <langstring language="bn">A128CBC-HS256</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>A128CBC+HS256</termIdentifier>
+        <caption>
+            <langstring language="en">A128CBC+HS256</langstring>
+            <langstring language="da">A128CBC+HS256</langstring>
+            <langstring language="bn">A128CBC+HS256</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>A256CBC-HS512</termIdentifier>
+        <caption>
+            <langstring language="en">A256CBC-HS512</langstring>
+            <langstring language="da">A256CBC-HS512</langstring>
+            <langstring language="bn">A256CBC-HS512</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>A128CBC-HS256</termIdentifier>
+        <caption>
+            <langstring language="en">A128CBC-HS256</langstring>
+            <langstring language="da">A128CBC-HS256</langstring>
+            <langstring language="bn">A128CBC-HS256</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>A192CBC-HS384</termIdentifier>
+        <caption>
+            <langstring language="en">A192CBC-HS384</langstring>
+            <langstring language="da">A192CBC-HS384</langstring>
+            <langstring language="bn">A192CBC-HS384</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>A256CBC+HS512</termIdentifier>
+        <caption>
+            <langstring language="en">A256CBC+HS512</langstring>
+            <langstring language="da">A256CBC+HS512</langstring>
+            <langstring language="bn">A256CBC+HS512</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>A192GCM</termIdentifier>
+        <caption>
+            <langstring language="en">A192GCM</langstring>
+            <langstring language="da">A192GCM</langstring>
+            <langstring language="bn">A192GCM</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>A128GCM</termIdentifier>
+        <caption>
+            <langstring language="en">A128GCM</langstring>
+            <langstring language="da">A128GCM</langstring>
+            <langstring language="bn">A128GCM</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>A256GCM</termIdentifier>
+        <caption>
+            <langstring language="en">A256GCM</langstring>
+            <langstring language="da">A256GCM</langstring>
+            <langstring language="bn">A256GCM</langstring>
+        </caption>
+    </term>
+</vdex>

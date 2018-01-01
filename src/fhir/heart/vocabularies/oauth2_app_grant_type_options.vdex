@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>oauth2_app_grant_type_options</vocabIdentifier>
+    <term>
+        <termIdentifier>authorization_code</termIdentifier>
+        <caption>
+            <langstring language="en">Authorization Code</langstring>
+            <langstring language="da">Authorization Code</langstring>
+            <langstring language="bn">Authorization Code</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>implicit</termIdentifier>
+        <caption>
+            <langstring language="en">Implicit</langstring>
+            <langstring language="da">Implicit</langstring>
+            <langstring language="bn">Implicit</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>password</termIdentifier>
+        <caption>
+            <langstring language="en">Password</langstring>
+            <langstring language="da">Password</langstring>
+            <langstring language="bn">Password</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>client_credentials</termIdentifier>
+        <caption>
+            <langstring language="en">Client Credentials</langstring>
+            <langstring language="da">Client Credentials</langstring>
+            <langstring language="bn">Client Credentials</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>urn:ietf:params:oauth:grant-type:jwt-bearer</termIdentifier>
+        <caption>
+            <langstring language="en">JWT Bearer</langstring>
+            <langstring language="da">JWT Bearer</langstring>
+            <langstring language="bn">JWT Bearer</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>urn:ietf:params:oauth:grant-type:saml2-bearer</termIdentifier>
+        <caption>
+            <langstring language="en">SAML2 Bearer</langstring>
+            <langstring language="da">SAML2 Bearer</langstring>
+            <langstring language="bn">SAML2 Bearer</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>refresh_token</termIdentifier>
+        <caption>
+            <langstring language="en">Refesh Token</langstring>
+            <langstring language="da">Refresh Token</langstring>
+            <langstring language="bn">Refresh Token</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>mfa</termIdentifier>
+        <caption>
+            <langstring language="en">Multi Factor Authentication</langstring>
+            <langstring language="da">Multi Factor Authentication</langstring>
+            <langstring language="bn">Multi Factor Authentication</langstring>
+        </caption>
+    </term>
+</vdex>

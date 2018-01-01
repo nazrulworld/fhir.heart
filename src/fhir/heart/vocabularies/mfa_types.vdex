@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>mfa_types</vocabIdentifier>
+    <term>
+        <termIdentifier>sms</termIdentifier>
+        <caption>
+            <langstring language="en">SMS</langstring>
+            <langstring language="da">SMS</langstring>
+            <langstring language="bn">SMS</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>email</termIdentifier>
+        <caption>
+            <langstring language="en">Email</langstring>
+            <langstring language="da">Email</langstring>
+            <langstring language="bn">Email</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>google_authenticator</termIdentifier>
+        <caption>
+            <langstring language="en">Google Authenticator</langstring>
+            <langstring language="da">Google Authenticator</langstring>
+            <langstring language="bn">Google Authenticator</langstring>
+        </caption>
+    </term>
+</vdex>

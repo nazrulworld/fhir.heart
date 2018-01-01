@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>gender_options</vocabIdentifier>
+    <term>
+        <termIdentifier>male</termIdentifier>
+        <caption>
+            <langstring language="en">Male</langstring>
+            <langstring language="da">Han</langstring>
+            <langstring language="bn">পুরুষ</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>female</termIdentifier>
+        <caption>
+            <langstring language="en">Female</langstring>
+            <langstring language="da">Kvinde</langstring>
+            <langstring language="bn">মহিলা</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>other</termIdentifier>
+        <caption>
+            <langstring language="en">Other</langstring>
+            <langstring language="da">Andet</langstring>
+            <langstring language="bn">অন্যান্য</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>unknown</termIdentifier>
+        <caption>
+            <langstring language="en">Unknown</langstring>
+            <langstring language="da">Ukendt</langstring>
+            <langstring language="bn">অজানা</langstring>
+        </caption>
+    </term>
+</vdex>

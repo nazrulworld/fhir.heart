@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>oauth2_app_response_type_options</vocabIdentifier>
+    <term>
+        <termIdentifier>code</termIdentifier>
+        <caption>
+            <langstring language="en">code (Authorization Code Flow)</langstring>
+            <langstring language="da">code (Authorization Code Flow)</langstring>
+            <langstring language="bn">code (Authorization Code Flow)</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>id_token</termIdentifier>
+        <caption>
+            <langstring language="en">id_token (Implicit Flow)</langstring>
+            <langstring language="da">id_token (Implicit Flow)</langstring>
+            <langstring language="bn">id_token (Implicit Flow)</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>token id_token</termIdentifier>
+        <caption>
+            <langstring language="en">token id_token (Implicit Flow)</langstring>
+            <langstring language="da">token id_token (Implicit Flow)</langstring>
+            <langstring language="bn">token id_token (Implicit Flow)</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>code token</termIdentifier>
+        <caption>
+            <langstring language="en">code token (Hybrid Flow)</langstring>
+            <langstring language="da">code token (Hybrid Flow)</langstring>
+            <langstring language="bn">code token (Hybrid Flow)</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>code id_token</termIdentifier>
+        <caption>
+            <langstring language="en">code id_token (Hybrid Flow)</langstring>
+            <langstring language="da">code id_token (Hybrid Flow)</langstring>
+            <langstring language="bn">code id_token (Hybrid Flow)</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>code token id_token</termIdentifier>
+        <caption>
+            <langstring language="en">code token id_token (Hybrid Flow)</langstring>
+            <langstring language="da">code token id_token (Hybrid Flow)</langstring>
+            <langstring language="bn">code token id_token (Hybrid Flow)</langstring>
+        </caption>
+    </term>
+</vdex>

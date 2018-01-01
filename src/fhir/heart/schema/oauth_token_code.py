@@ -4,25 +4,33 @@
 # @Link    : http://nazrul.me/
 # @Version : $Id$
 # All imports here
-from collective.fhir.heart import _
+from fhir.heart import _
+from fhir.heart.schema.oauth_application import IOAuth2Application
+from fhir.heart.schema.user import IBaseUser
+from plone.app.jsonfield import JSON
+from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.supermodel import model
+from z3c.relationfield.schema import RelationChoice
 from zope import schema as zs
 from zope.interface import Invalid
 from zope.interface import invariant
 
-import json
 
 __author__ = 'Md Nazrul Islam (email2nazrul@gmail.com)'
 
 
 class ITokenCodeBase(model.Schema):
-    """ """
-    user_id = zs.TextLine(
-        title=_('User\'s ID'),
+    """OID Map:
+    :user_id = user
+    :client_id = client"""
+    user = RelationChoice(
+        title=_('User'),
+        source=ObjPathSourceBinder(object_provides=IBaseUser.__identifier__),
         required=True
     )
-    client_id = zs.TextLine(
-        title=_('Application ID'),
+    client = RelationChoice(
+        title=_('Application'),
+        source=ObjPathSourceBinder(object_provides=IOAuth2Application.__identifier__),
         required=True
     )
     scope = zs.List(
@@ -43,17 +51,12 @@ class ITokenCodeBase(model.Schema):
 
 class IJWTBearerToken(ITokenCodeBase):
     """ """
-    access_token = zs.TextLine()
-    refresh_token = zs.TextLine()
-    _id_token = zs.TextLine()
-
-    def id_token():
-
-        def fget(self):
-            return json.loads(self._id_token)
-
-        def fset(self, value):
-            self._id_token = json.dumps(value)
-
-        return locals()
-    id_token = property(**id_token())
+    access_token = zs.TextLine(
+        title=_('Access token')
+        )
+    refresh_token = zs.TextLine(
+        title=_('Refresh token')
+        )
+    id_token = JSON(
+        title=_('ID Token')
+        )

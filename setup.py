@@ -23,10 +23,11 @@ install_requires = [
     'plone.api',
     'plone.restapi',
     'plone.app.fhirfield',
+    'plone.app.jsonfield',
     'setuptools',
     'Products.GenericSetup>=1.8.2',
     'z3c.jbot',
-    'dexterity.membrane>=1.2',
+    'dexterity.membrane>=2.0',
     'Products.membrane>=3.0.2',
     'oauthlib',
     'python-social-auth',
@@ -37,7 +38,8 @@ install_requires = [
     'pysaml2',
     'pyjwkest',
     'fhirclient',
-    'collective.vdexvocabulary'
+    'collective.vdexvocabulary',
+    'python-jose'
 ]
 
 if PY2:
@@ -78,13 +80,7 @@ setup(
     package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
-    install_requires=[
-        # -*- Extra requirements: -*-
-        'plone.api',
-        'Products.GenericSetup>=1.8.2',
-        'setuptools',
-        'z3c.jbot',
-    ],
+    install_requires=install_requires,
     extras_require={
         'test': [
             'plone.app.testing',

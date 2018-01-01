@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>fhir_user_resource_types</vocabIdentifier>
+    <term>
+        <termIdentifier>Practitioner</termIdentifier>
+        <caption>
+            <langstring language="en">Practitioner</langstring>
+            <langstring language="da">praktiserende læge</langstring>
+            <langstring language="bn">প্রাকটিসনার</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>Patient</termIdentifier>
+        <caption>
+            <langstring language="en">Patient</langstring>
+            <langstring language="da">Patienten</langstring>
+            <langstring language="bn">রোগী</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>Person</termIdentifier>
+        <caption>
+            <langstring language="en">Person</langstring>
+            <langstring language="da">Person</langstring>
+            <langstring language="bn">ব্যক্তি</langstring>
+        </caption>
+    </term>
+</vdex>

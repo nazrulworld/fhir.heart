@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>oauth2_app_req_obj_algs_options</vocabIdentifier>
+    <term>
+        <termIdentifier>RSA-OAEP</termIdentifier>
+        <caption>
+            <langstring language="en">RSA-OAEP</langstring>
+            <langstring language="da">RSA-OAEP</langstring>
+            <langstring language="bn">RSA-OAEP</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>RSA-OAEP-256</termIdentifier>
+        <caption>
+            <langstring language="en">RSA-OAEP-256</langstring>
+            <langstring language="da">RSA-OAEP-256</langstring>
+            <langstring language="bn">RSA-OAEP-256</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>?RSA1_5</termIdentifier>
+        <caption>
+            <langstring language="en">?RSA1_5</langstring>
+            <langstring language="da">?RSA1_5</langstring>
+            <langstring language="bn">?RSA1_5</langstring>
+        </caption>
+    </term>
+</vdex>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>oauth2_app_client_type_options</vocabIdentifier>
+    <term>
+        <termIdentifier>public</termIdentifier>
+        <caption>
+            <langstring language="en">Public</langstring>
+            <langstring language="da">Public</langstring>
+            <langstring language="bn">Public</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>confidential</termIdentifier>
+        <caption>
+            <langstring language="en">Confidential</langstring>
+            <langstring language="da">Confidential</langstring>
+            <langstring language="bn">Confidential</langstring>
+        </caption>
+    </term>
+</vdex>

@@ -4,7 +4,7 @@
 # @Link    : http://nazrul.me/
 # @Version : $Id$
 # All imports here
-from collective.fhir.heart import _
+from fhir.heart import _
 from plone.supermodel import model
 from zope import schema as zs
 

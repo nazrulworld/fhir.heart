@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>oauth2_app_jwt_algs_options</vocabIdentifier>
+    <term>
+        <termIdentifier>HS256</termIdentifier>
+        <caption>
+            <langstring language="en">HS256</langstring>
+            <langstring language="da">HS256</langstring>
+            <langstring language="bn">HS256</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>HS384</termIdentifier>
+        <caption>
+            <langstring language="en">HS384</langstring>
+            <langstring language="da">HS384</langstring>
+            <langstring language="bn">HS384</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>HS512</termIdentifier>
+        <caption>
+            <langstring language="en">HS512</langstring>
+            <langstring language="da">HS512</langstring>
+            <langstring language="bn">HS512</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>RS256</termIdentifier>
+        <caption>
+            <langstring language="en">RS256</langstring>
+            <langstring language="da">RS256</langstring>
+            <langstring language="bn">RS256</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>RS384</termIdentifier>
+        <caption>
+            <langstring language="en">RS384</langstring>
+            <langstring language="da">RS384</langstring>
+            <langstring language="bn">RS384</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>RS512</termIdentifier>
+        <caption>
+            <langstring language="en">RS512</langstring>
+            <langstring language="da">RS512</langstring>
+            <langstring language="bn">RS512</langstring>
+        </caption>
+    </term>
+</vdex>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex language="en" orderSignificant="true" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0">
+    <vocabIdentifier>oauth2_app_token_endpoint_auth_method_options</vocabIdentifier>
+    <term>
+        <termIdentifier>client_secret_post</termIdentifier>
+        <caption>
+            <langstring language="en">Client Secret POST</langstring>
+            <langstring language="da">Client Secret POST</langstring>
+            <langstring language="bn">Client Secret POST</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>client_secret_basic</termIdentifier>
+        <caption>
+            <langstring language="en">Client Secret Basic</langstring>
+            <langstring language="da">Client Secret Basic</langstring>
+            <langstring language="bn">Client Secret Basic</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>client_secret_jwt</termIdentifier>
+        <caption>
+            <langstring language="en">Client Secret JWT</langstring>
+            <langstring language="da">Client Secret JWT</langstring>
+            <langstring language="bn">Client Secret JWT</langstring>
+        </caption>
+    </term>
+    <term>
+        <termIdentifier>private_key_jwt</termIdentifier>
+        <caption>
+            <langstring language="en">Private Key JWT</langstring>
+            <langstring language="da">Private Key JWT</langstring>
+            <langstring language="bn">Private Key JWT</langstring>
+        </caption>
+    </term>
+</vdex>
