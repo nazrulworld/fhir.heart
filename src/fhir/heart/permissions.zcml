@@ -1,11 +1,87 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
   xmlns:zcml="http://namespaces.zope.org/zcml"
-  i18n_domain="plone">
+  i18n_domain="fhir.heart">
 
   <configure zcml:condition="installed AccessControl.security">
   <!-- -*- extra stuff goes here -*- -->
-
+  <!-- fhir.heart.content.Organization -->
+  <permission
+        id="fhir.heart.addOrganization"
+        title="fhir.heart: Add Organization"
+        description="Organization creation permission"
+    />
+    <permission
+        id="fhir.heart.manageOrganization"
+        title="fhir.heart: Manage Organization"
+        description="Organization management permission"
+    />
+    <!-- fhir.heart.content.HealthcareService -->
+    <permission
+        id="fhir.heart.addHealthcareService"
+        title="fhir.heart: Add HealthcareService"
+        description="HealthcareService creation permission"
+    />
+    <permission
+        id="fhir.heart.manageHealthcareService"
+        title="fhir.heart: Manage HealthcareService"
+        description="HealthcareService management permission"
+    />
+    <!-- fhir.heart.content.Organization -->
+    <permission
+        id="fhir.heart.addPatient"
+        title="fhir.heart: Add Patient"
+        description="Patient creation permission"
+    />
+    <permission
+        id="fhir.heart.managePatient"
+        title="fhir.heart: Manage Patient"
+        description="Patient management permission"
+    />
+    <!-- fhir.heart.content.Person -->
+    <permission
+        id="fhir.heart.addPerson"
+        title="fhir.heart: Add Person"
+        description="Person creation permission"
+    />
+    <permission
+        id="fhir.heart.managePerson"
+        title="fhir.heart: Manage Person"
+        description="Person management permission"
+    />
+    <!-- fhir.heart.content.Practitioner -->
+    <permission
+        id="fhir.heart.addPractitioner"
+        title="fhir.heart: Add Practitioner"
+        description="Practitioner creation permission"
+    />
+    <permission
+        id="fhir.heart.managePractitioner"
+        title="fhir.heart: Manage Practitioner"
+        description="Practitioner management permission"
+    />
+    <!-- fhir.heart.content.OAuth2Application -->
+    <permission
+        id="fhir.heart.addOAuth2Application"
+        title="fhir.heart: Add OAuth2Application"
+        description="OAuth2Application creation permission"
+    />
+    <permission
+        id="fhir.heart.manageOAuth2Application"
+        title="fhir.heart: Manage OAuth2Application"
+        description="OAuth2Application management permission"
+    />
+    <!-- fhir.heart.content.JWTBearerToken -->
+    <permission
+        id="fhir.heart.addJWTBearerToken"
+        title="fhir.heart: Add JWTBearerToken"
+        description="JWTBearerToken creation permission"
+    />
+    <permission
+        id="fhir.heart.manageJWTBearerToken"
+        title="fhir.heart: Manage JWTBearerToken"
+        description="JWTBearerToken management permission"
+    />
 
   </configure>
 

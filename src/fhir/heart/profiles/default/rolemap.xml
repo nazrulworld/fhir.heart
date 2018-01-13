@@ -1,7 +1,85 @@
 <?xml version="1.0"?>
 <rolemap>
-  <permissions>
-  <!-- -*- extra stuff goes here -*- -->
+    <roles>
+        <!--FHIR Patient's role::  -->
+        <role name="patient" description="Patient" />
+        <!--https://www.hl7.org/fhir/codesystem-practitioner-role.html-->
+        <role name="doctor" description="Doctor" />
+        <role name="nurse" description="Nurse" />
+        <role name="pharmacist" description="Pharmacist" />
+        <role name="researcher" description="Researcher" />
+    </roles>
+    <permissions>
+        <!-- -*- extra stuff goes here -*- -->
+        <permission name="fhir.heart: Add Organization" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="fhir.heart: Manage Organization" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+            <role name="Owner"/>
+        </permission>
+
+        <permission name="fhir.heart: Add HealthcareService" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="fhir.heart: Manage HealthcareService" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+            <role name="Owner"/>
+        </permission>
+
+        <permission name="fhir.heart: Add Patient" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="fhir.heart: Manage Patient" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+            <role name="Owner"/>
+        </permission>
+
+        <permission name="fhir.heart: Add Person" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="fhir.heart: Manage Person" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+            <role name="Owner"/>
+        </permission>
+
+        <permission name="fhir.heart: Add Practitioner" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="fhir.heart: Manage Practitioner" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+            <role name="Owner"/>
+        </permission>
+
+        <permission name="fhir.heart: Add OAuth2Application" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="fhir.heart: Manage OAuth2Application" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+            <role name="Owner"/>
+        </permission>
+
+        <permission name="fhir.heart: Add JWTBearerToken" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="fhir.heart: Manage JWTBearerToken" acquire="True">
+            <role name="Manager"/>
+            <role name="Site Administrator"/>
+            <role name="Owner"/>
+        </permission>
 
   </permissions>
 </rolemap>
