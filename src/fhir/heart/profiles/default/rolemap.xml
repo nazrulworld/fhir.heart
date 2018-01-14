@@ -2,12 +2,12 @@
 <rolemap>
     <roles>
         <!--FHIR Patient's role::  -->
-        <role name="patient" description="Patient" />
+        <role name="patient" />
         <!--https://www.hl7.org/fhir/codesystem-practitioner-role.html-->
-        <role name="doctor" description="Doctor" />
-        <role name="nurse" description="Nurse" />
-        <role name="pharmacist" description="Pharmacist" />
-        <role name="researcher" description="Researcher" />
+        <role name="doctor" />
+        <role name="nurse" />
+        <role name="pharmacist" />
+        <role name="researcher" />
     </roles>
     <permissions>
         <!-- -*- extra stuff goes here -*- -->

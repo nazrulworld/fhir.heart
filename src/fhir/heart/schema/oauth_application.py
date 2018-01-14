@@ -134,7 +134,7 @@ class IOAuth2Application(model.Schema):
             'the End-User if it is given. If desired, representation of this Claim '
             'in different languages and scripts is represented as described in Section 2.1.'
         ),
-        requrired=False
+        required=False
     )
 
     jwks_uri = zs.URI(

@@ -38,7 +38,7 @@ class ITokenCodeBase(model.Schema):
         required=False,
         value_type=zs.TextLine()
     )
-    expire_at = zs.DateTime(
+    expire_at = zs.Datetime(
         title=_('Token Expire Date'),
         required=True
     )

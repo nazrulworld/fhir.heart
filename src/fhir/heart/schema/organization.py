@@ -6,7 +6,7 @@
 # All imports here
 from fhir.heart import _
 from plone.app.fhirfield import FhirResource
-from plone.namedfile import NamedBlobImage
+from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 
 
