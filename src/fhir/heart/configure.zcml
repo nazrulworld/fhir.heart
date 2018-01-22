@@ -1,8 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
-    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="fhir.heart">
 
   <i18n:registerTranslations directory="locales" />
@@ -14,34 +13,10 @@
   <!--<includeDependencies package="." />-->
 
   <include package=".browser" />
-
-  <include file="permissions.zcml" />
-
-  <include file="upgrades.zcml" />
-
-  <genericsetup:registerProfile
-      name="default"
-      title="fhir.heart"
-      directory="profiles/default"
-      description="Installs the fhir.heart add-on."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.post_install"
-      />
-
-  <genericsetup:registerProfile
-      name="uninstall"
-      title="fhir.heart (uninstall)"
-      directory="profiles/uninstall"
-      description="Uninstalls the fhir.heart add-on."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.uninstall"
-      />
-
-  <utility
-      factory=".setuphandlers.HiddenProfiles"
-      name="fhir.heart-hiddenprofiles"
-      />
-
+  <include package=".behavior" />
+  <include zcml:condition="installed AccessControl.security" file="permissions.zcml" />
+  <include  file="profiles.zcml" />
+  <include file="vocabularies.zcml" />
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

@@ -1,10 +1,6 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
-  xmlns:zcml="http://namespaces.zope.org/zcml"
   i18n_domain="fhir.heart">
-
-  <configure zcml:condition="installed AccessControl.security">
-  <!-- -*- extra stuff goes here -*- -->
   <!-- fhir.heart.content.Organization -->
   <permission
         id="fhir.heart.addOrganization"
@@ -82,7 +78,5 @@
         title="fhir.heart: Manage JWTBearerToken"
         description="JWTBearerToken management permission"
     />
-
-  </configure>
 
 </configure>

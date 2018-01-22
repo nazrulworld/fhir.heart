@@ -5,13 +5,14 @@
 # @Version : $Id$
 # All imports here
 from dexterity.membrane.behavior.user import IMembraneUser
-from fhir.heart import _
+from fhir.heart.i18n import _
+from plone.app.jsonfield.field import JSON
 from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
-from plone.namedfile import NamedBlobImage
+from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 from zope import schema as zs
-from zope.interface import adapter
+from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import provider
 
@@ -87,7 +88,7 @@ class IProvideOidConnectClaims(model.Schema):
     profile = zs.URI(
         title=_('Profile URL'),
         description=_(
-            'URL of the End-User\'s profile page. '
+            "URL of the End-User\'s profile page. "
             'The contents of this Web page SHOULD be about the End-User.'
         ),
         required=False,
@@ -95,7 +96,7 @@ class IProvideOidConnectClaims(model.Schema):
     picture = NamedBlobImage(
         title=_('profile picture'),
         description=_(
-            'URL of the End-User\'s profile picture. '
+            "URL of the End-User\'s profile picture. "
             'This URL MUST refer to an image file (for example, a PNG, JPEG, or GIF image file), '
             'rather than to a Web page containing an image. '
             'Note that this URL SHOULD specifically reference a profile photo of the End-User '
@@ -108,7 +109,7 @@ class IProvideOidConnectClaims(model.Schema):
     website = zs.URI(
         title=_('Website URL'),
         description=_(
-            'URL of the End-User\'s Web page or blog. '
+            "URL of the End-User\'s Web page or blog. "
             'This Web page SHOULD contain information published by '
             'the End-User or an organization that the End-User is affiliated with.'
         )
@@ -126,7 +127,7 @@ class IProvideOidConnectClaims(model.Schema):
     gender = zs.Choice(
         title=_('Gender'),
         description=_(
-            'End-User\'s gender. Values defined by this specification are female and male. '
+            "End-User's gender. Values defined by this specification are female and male. "
             'Other values MAY be used when neither of the defined values are applicable.'
         ),
         vocabulary='gender_options'
@@ -135,10 +136,10 @@ class IProvideOidConnectClaims(model.Schema):
     birthdate = zs.Date(
         title=_('Birth Date'),
         description=_(
-            'End-User\'s birthday, represented as an ISO 8601:2004 [ISO8601‑2004] '
+            str("End-User's birthday, represented as an ISO 8601:2004 [ISO8601‑2004] ").decode('utf-8') +
             'YYYY-MM-DD format. The year MAY be 0000, indicating that it is omitted. '
             'To represent only the year, YYYY format is allowed. '
-            'Note that depending on the underlying platform\'s date related function, '
+            "Note that depending on the underlying platform's date related function, "
             'providing just year can result in varying month and day, '
             'so the implementers need to take this factor into account to '
             'correctly process the dates.'
@@ -146,21 +147,22 @@ class IProvideOidConnectClaims(model.Schema):
         required=True
     )
 
-    zoneinfo = zs.TextLine(
+    zoneinfo = zs.Choice(
         title=_('Time Zone'),
         description=_(
             'String from zoneinfo [zoneinfo] time zone database representing the '
             'End-User\'s time zone. For example, Europe/Paris or America/Los_Angeles.'
         ),
+        vocabulary='plone.app.vocabularies.CommonTimezones',
         required=False
     )
 
     locale = zs.TextLine(
         title=_('Language'),
         description=_(
-            'End-User\'s locale, represented as a BCP47 [RFC5646] language tag. '
+            str('End-User\'s locale, represented as a BCP47 [RFC5646] language tag. '
             'This is typically an ISO 639-1 Alpha-2 [ISO639‑1] language code in '
-            'lowercase and an ISO 3166-1 Alpha-2 [ISO3166‑1] country code in uppercase, '
+            'lowercase and an ISO 3166-1 Alpha-2 [ISO3166‑1] country code in uppercase, ').decode('utf-8') +
             'separated by a dash. For example, en-US or fr-CA. As a compatibility note, '
             'some implementations have used an underscore as the separator rather than a dash, '
             'for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.'
@@ -194,7 +196,7 @@ class IProvideOidConnectClaims(model.Schema):
         )
     )
 
-    address = zs.Dict(
+    address = JSON(
         title=_('Address'),
         description=_(
             'End-User\'s preferred postal address. '

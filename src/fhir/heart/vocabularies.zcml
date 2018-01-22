@@ -1,10 +1,9 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
-  xmlns:vdex="http://namespaces.zope.org/vdex">
+  xmlns:vdex="http://namespaces.zope.org/vdex"
+  i18n_domain="fhir.heart">
 
   <include package="collective.vdexvocabulary" file="meta.zcml" />
-  <include package="collective.vdexvocabulary" />
-
   <vdex:vocabulary directory="vocabularies" />
 
 </configure>

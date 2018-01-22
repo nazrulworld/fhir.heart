@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object name="portal_types" meta_type="Plone Types Tool">
+  <property name="title">Available contenttypes in fhir.heart</property>
+  <object remove="True" meta_type="Dexterity FTI" name="Organization"/>
+  <object remove="True" meta_type="Dexterity FTI" name="HealthcareService"/>
+  <object remove="True" meta_type="Dexterity FTI" name="Patient"/>
+  <object remove="True" meta_type="Dexterity FTI" name="Person"/>
+  <object remove="True" meta_type="Dexterity FTI" name="Practitioner"/>
+  <object remove="True" meta_type="Dexterity FTI" name="OAuth2Application"/>
+  <object remove="True" meta_type="Dexterity FTI" name="JWTBearerToken"/>
+</object>

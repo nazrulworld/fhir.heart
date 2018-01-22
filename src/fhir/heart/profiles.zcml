@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="fhir.heart">
+
+    <genericsetup:registerProfile
+        name="default"
+        title="fhir.heart"
+        directory="profiles/default"
+        description="Installs the fhir.heart add-on."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.post_install"
+    />
+
+    <genericsetup:registerProfile
+          name="uninstall"
+        title="fhir.heart (uninstall)"
+        directory="profiles/uninstall"
+        description="Uninstalls the fhir.heart add-on."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.uninstall"
+    />
+    <include file="upgrades.zcml" />
+    <!-- -*- extra stuff goes here -*- -->
+    <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="fhir.heart-hiddenprofiles"
+      />
+</configure>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    name="HealthcareService"
+    name="Practitioner"
     meta_type="Dexterity FTI"
     i18n:domain="fhir.heart">
 
@@ -34,8 +34,8 @@
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
-    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
     <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+    <element value="fhir.heart.behavior.user.IOidConnectClaims"/>
   </property>
 
   <!-- View information -->
