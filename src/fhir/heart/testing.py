@@ -18,9 +18,26 @@ class FhirHeartLayer(PloneSandboxLayer):
         # Load any other ZCML that is required for your tests.
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
+        z2.installProduct(app, 'Products.membrane')
+
+        import plone.restapi
+        self.loadZCML(package=plone.restapi)
+
+        import plone.app.fhirfield
+        self.loadZCML(package=plone.app.fhirfield)
+
+        import plone.app.jsonfield
+        self.loadZCML(package=plone.app.jsonfield)
+
+        import dexterity.membrane
+        self.loadZCML(package=dexterity.membrane)
+
         self.loadZCML(package=fhir.heart)
 
     def setUpPloneSite(self, portal):
+        """ """
+        applyProfile(portal, 'dexterity.membrane:default')
+        applyProfile(portal, 'plone.restapi:default')
         applyProfile(portal, 'fhir.heart:default')
 
 

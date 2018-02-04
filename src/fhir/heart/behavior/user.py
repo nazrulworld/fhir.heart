@@ -288,7 +288,7 @@ class OidConnectClaimsProvider(object):
     @property
     def updated_at(self):
         """ """
-        return getattr(self.context, 'modified_on', None)
+        return getattr(self.context, 'modified', None)
 
     @updated_at.setter
     def updated_at(self, value):

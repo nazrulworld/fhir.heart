@@ -18,6 +18,16 @@ class IBaseUser(model.Schema):
     https://www.hl7.org/fhir/patient.html
     https://www.hl7.org/fhir/practitioner.html
     https://www.hl7.org/fhir/person.html"""
+    first_name = schema.TextLine(
+        title=_('First Name'),
+    )
+    last_name = schema.TextLine(
+        title=_('Last name')
+        )
+    email = schema.TextLine(
+        title=_('Email address'),
+        description=_('This email address will be used as login name')
+        )
     mfa = schema.Choice(
         title=_('Multi-factor authentication (MFA)'),
         required=False,

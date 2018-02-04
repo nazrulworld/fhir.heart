@@ -2,6 +2,9 @@
 <metadata>
   <version>1000</version>
   <dependencies>
-
+    <!-- Products.membrane -->
+    <dependency>profile-Products.membrane:default</dependency>
+    <!-- dexterity.membrane -->
+    <dependency>profile-dexterity.membrane:default</dependency>
   </dependencies>
 </metadata>
