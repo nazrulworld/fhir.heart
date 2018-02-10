@@ -45,8 +45,8 @@ class OrganizationIntegrationTest(unittest.TestCase):
 
         type_info = portal_types.getTypeInfo(portal_type)
         self.assertIsNotNone(type_info)
-
-        self.assertEqual(len(type_info.behaviors), 1)
+        # two behaviors
+        self.assertEqual(len(type_info.behaviors), 2)
 
     def test_add(self):
         """ """
@@ -62,7 +62,6 @@ class OrganizationIntegrationTest(unittest.TestCase):
 
         with api.env.adopt_roles('Manager'):
             hospital = createContentInContainer(self.portal, portal_type, **data)
-
         self.assertEqual(hospital.getTypeInfo().factory, portal_type)
 
 
@@ -90,13 +89,14 @@ class OrganizationFunctionalTest(unittest.TestCase):
             fhir_str = f.read().strip()
 
         browser.open(self.portal.absolute_url() + '/++add++Organization')
-        browser.getControl(name='form.widgets.IBasic.title').value = 'cmp-ltd'
+        browser.getControl(name='form.widgets.IHeartIdChooser.id').value = 'cmo-ltd'
+        browser.getControl(name='form.widgets.IBasic.title').value = 'CMO LTD'
         browser.getControl(name='form.widgets.resource').value = fhir_str
         browser.getControl(name='form.buttons.save').click()
 
         # make sure challenge
         self.assertIn('200', browser.headers['status'])
-        self.assertIn('cmp-ltd', browser.url)
+        self.assertIn('cmo-ltd', browser.url)
         with open('/tmp/histoty.html', 'w') as f:
             f.write(browser.contents)
 

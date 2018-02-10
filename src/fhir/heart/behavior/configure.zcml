@@ -8,9 +8,16 @@
       title="OpenID Connect Claims"
       description="Use this content as a membrane user"
       provides=".user.IOidConnectClaims"
-      marker=".user.IProvideOidConnectClaims"
       factory=".user.OidConnectClaimsProvider"
       for="dexterity.membrane.behavior.user.IMembraneUser"
+  />
+
+  <plone:behavior
+      title="FHIR HEART provided ID"
+      description="generated unique id for dexterity content"
+      provides=".id.IHeartIdChooser"
+      factory=".id.HeartId"
+      for="plone.dexterity.interfaces.IDexterityContent"
   />
 
 </configure>

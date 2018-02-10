@@ -1,78 +1,92 @@
 # -*- coding: utf-8 -*-
+from fhir.heart.behavior.id import IHeartIdChooser
+from fhir.heart.behavior.user import IOidConnectClaims
+from fhir.heart.testing import FHIR_HEART_INTEGRATION_TESTING
+from plone import api
 from plone.behavior.interfaces import IBehavior
 from plone.dexterity.behavior import DexterityBehaviorAssignable
-from plone.dexterity.fti import DexterityFTI
-from plone.dexterity.interfaces import IDexterityFTI
+from zope.component import queryUtility
 from zope.interface import Interface
-from plone.dexterity.tests.case import MockTestCase
+
+import unittest
 
 
-class IOne(Interface):
-    pass
+__author__ = 'Md Nazrul Islam<email2nazrul@gmail.com>'
 
 
-class ITwo(Interface):
-    pass
+class TestBehavior(unittest.TestCase):
+    """ """
+    layer = FHIR_HEART_INTEGRATION_TESTING
 
+    def setUp(self):
+        """ """
+        self.portal = self.layer['portal']
 
-class IThree(Interface):
-    pass
+    def test_defined_behaviors(self):
+        """Auto Behavior Name::
 
+            >>> from fhir.heart.behavior.user import IOidConnectClaims
+            >>> print IOidConnectClaims.__identifier__
+            fhir.heart.behavior.user.IOidConnectClaims
+            >>> fhir.heart.behavior.id import IHeartIdChooser
+            >>> print  IHeartIdChooser.__identifier__
+            fhir.heart.behavior.id.IHeartIdChooser
+        """
+        oid_connection_claims = queryUtility(IBehavior, name='fhir.heart.behavior.user.IOidConnectClaims')
+        self.assertIsNotNone(oid_connection_claims)
 
-class IFour(IThree):
-    pass
-
-
-class TestBehavior(MockTestCase):
+        id_chooser = queryUtility(IBehavior, name='fhir.heart.behavior.id.IHeartIdChooser')
+        self.assertIsNotNone(id_chooser)
 
     def test_supports(self):
-
+        """ """
         # Context mock
-        context_dummy = self.create_dummy(portal_type=u"testtype")
+        with api.env.adopt_roles('Manager'):
+            id_ = self.portal.invokeFactory('Organization', 'hospital')
+            organization_context = self.portal[id_]
+            id_ = organization_context.invokeFactory('Patient', 'patient')
+            patient_context = organization_context[id_]
 
-        # Behavior mock
-        behavior_dummy_1 = self.create_dummy(interface=IOne)
-        self.mock_utility(
-            behavior_dummy_1,
-            IBehavior,
-            name=IOne.__identifier__
-        )
-        behavior_dummy_4 = self.create_dummy(interface=IFour)
-        self.mock_utility(
-            behavior_dummy_4,
-            IBehavior,
-            name=IFour.__identifier__
-        )
+        # Test: Organization has IHeartIdChooser but not IOidConnectClaims
+        assignable = DexterityBehaviorAssignable(organization_context)
+        self.assertEqual(False, assignable.supports(IOidConnectClaims))
+        self.assertEqual(True, assignable.supports(IHeartIdChooser))
 
-        # FTI mock
-        fti = DexterityFTI(u"testtype")
-        fti.behaviors = [IOne.__identifier__, IFour.__identifier__]
-        self.mock_utility(fti, IDexterityFTI, name=u"testtype")
-
-        assignable = DexterityBehaviorAssignable(context_dummy)
-
-        self.assertEqual(True, assignable.supports(IOne))
-        self.assertEqual(False, assignable.supports(ITwo))
-        self.assertEqual(True, assignable.supports(IThree))
-        self.assertEqual(True, assignable.supports(IFour))
+        # Test: Patient has both behaviors
+        assignable = DexterityBehaviorAssignable(patient_context)
+        self.assertEqual(True, assignable.supports(IOidConnectClaims))
+        self.assertEqual(True, assignable.supports(IHeartIdChooser))
 
     def test_enumerate(self):
+        """ """
+        with api.env.adopt_roles('Manager'):
+            id_ = self.portal.invokeFactory('Organization', 'hospital')
+            organization_context = self.portal[id_]
+            id_ = organization_context.invokeFactory('Patient', 'patient')
+            patient_context = organization_context[id_]
 
-        # Context mock
-        context_dummy = self.create_dummy(portal_type=u"testtype")
+        oid_connection_claims = queryUtility(IBehavior, name=IOidConnectClaims.__identifier__)
+        id_chooser = queryUtility(IBehavior, name=IHeartIdChooser.__identifier__)
 
-        # Behavior mock
-        behavior_dummy = self.create_dummy()
-        self.mock_utility(behavior_dummy, IBehavior, name=IOne.__identifier__)
+        assignable = DexterityBehaviorAssignable(organization_context)
 
-        # FTI mock
-        fti = DexterityFTI(u"testtype")
-        fti.behaviors = [IOne.__identifier__]
-        self.mock_utility(fti, IDexterityFTI, name=u"testtype")
+        # Organization has IHeartIdChooser
+        self.assertIn(
+            id_chooser,
+            list(assignable.enumerateBehaviors())
+        )
+        self.assertNotIn(
+            oid_connection_claims,
+            list(assignable.enumerateBehaviors())
+        )
 
-        assignable = DexterityBehaviorAssignable(context_dummy)
-
-        self.assertEqual(
-            [behavior_dummy],
+        # Patient has both
+        assignable = DexterityBehaviorAssignable(patient_context)
+        self.assertIn(
+            id_chooser,
+            list(assignable.enumerateBehaviors())
+        )
+        self.assertIn(
+            oid_connection_claims,
             list(assignable.enumerateBehaviors())
         )

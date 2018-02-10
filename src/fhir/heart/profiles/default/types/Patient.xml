@@ -34,9 +34,10 @@
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
-    <element value="fhir.heart.behavior.user.IOidConnectClaims"/>
     <element value="dexterity.membrane.behavior.user.IMembraneUser"/>
     <element value="dexterity.membrane.behavior.password.IProvidePasswords"/>
+    <element value="fhir.heart.behavior.user.IOidConnectClaims"/>
+    <element value="fhir.heart.behavior.id.IHeartIdChooser"/>
   </property>
 
   <!-- View information -->
