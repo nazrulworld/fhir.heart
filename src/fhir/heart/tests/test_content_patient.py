@@ -5,6 +5,8 @@
 # @Version : $Id$
 # All imports here
 from .helpers import STATIC_FHIR_DIRECTORY
+from fhir.heart.utils import generate_content_id
+from fhir.heart.schema import IPatient
 from fhir.heart.schema import IOrganization
 from fhir.heart.testing import FHIR_HEART_FUNCTIONAL_TESTING
 from fhir.heart.testing import FHIR_HEART_INTEGRATION_TESTING
@@ -33,25 +35,26 @@ class OrganizationIntegrationTest(unittest.TestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
+        self.make_structure()
 
-    def test_organization_type_is_available(self):
+    def test_patient_type_is_available(self):
         """ """
-        portal_type = 'Organization'
+        portal_type = 'Patient'
         portal_types = api.portal.get_tool('portal_types')
         self.assertIn(portal_type, portal_types.listTypeTitles().keys())
 
         type_info = portal_types.getTypeInfo(portal_type)
         self.assertIsNotNone(type_info)
         # two behaviors
-        # self.assertEqual(len(type_info.behaviors), 2)
+        self.assertEqual(len(type_info.behaviors), 4)
 
-    def test_add(self):
+    def make_structure(self):
         """ """
         portal_type = 'Organization'
         data = {
-            'id': None,  # we want auto generated ID
-            'title': 'Test hospital',
-            'description': 'my hospital',
+            'id': generate_content_id(portal_type),  # we want auto generated ID
+            'title': 'Test Healthcare Consortium',
+            'description': 'a group of companies based on USA',
 
         }
         json_file = STATIC_FHIR_DIRECTORY / 'Organization' / 'Organization.json'
@@ -59,8 +62,29 @@ class OrganizationIntegrationTest(unittest.TestCase):
             data['resource'] = getFields(IOrganization).get('resource').fromUnicode(f.read())
 
         with api.env.adopt_roles('Manager'):
-            hospital = createContentInContainer(self.portal, portal_type, **data)
-        self.assertEqual(hospital.getTypeInfo().factory, portal_type)
+            self.hospital = createContentInContainer(self.portal, portal_type, **data)
+
+    def test_add(self):
+        """ """
+        portal_type = 'Patient'
+        data = {
+            'id': generate_content_id(portal_type),
+            'first_name': 'Dr. Byn',
+            'last_name': 'Krogh',
+            'email': 'test@example.com',
+            'username': 'test@example.com',
+            'password': '12345',
+            'confirm_password': '12345'
+
+        }
+        json_file = STATIC_FHIR_DIRECTORY / 'Patient' / 'Patient.json'
+        with open(str(json_file), 'r') as f:
+            data['resource'] = getFields(IPatient).get('resource').fromUnicode(f.read())
+
+        with api.env.adopt_roles('Manager'):
+            patient = createContentInContainer(self.hospital, portal_type, **data)
+
+        self.assertEqual(patient.getTypeInfo().factory, portal_type)
 
 
 class OrganizationFunctionalTest(unittest.TestCase):

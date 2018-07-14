@@ -34,10 +34,11 @@
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
+    <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
     <element value="dexterity.membrane.behavior.user.IMembraneUser"/>
     <element value="dexterity.membrane.behavior.password.IProvidePasswords"/>
-    <element value="fhir.heart.behavior.user.IOidConnectClaims"/>
-    <element value="fhir.heart.behavior.user.IOidConnectClaims"/>
+    <!-- <element value="fhir.heart.behavior.user.IOidConnectClaims"/>
+    <element value="fhir.heart.behavior.user.IOidConnectClaims"/> -->
   </property>
 
   <!-- View information -->

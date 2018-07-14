@@ -32,8 +32,8 @@
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
-    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-    <element value="fhir.heart.behavior.id.IHeartIdChooser"/>
+    <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+    <!-- <element value="fhir.heart.behavior.id.IHeartIdChooser"/> -->
   </property>
 
   <!-- View information -->

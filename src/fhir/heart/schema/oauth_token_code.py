@@ -4,14 +4,13 @@
 # @Link    : http://nazrul.me/
 # @Version : $Id$
 # All imports here
-from fhir.heart.i18n import _
+from fhir.heart import _
 from fhir.heart.schema.oauth_application import IOAuth2Application
 from fhir.heart.schema.user import IBaseUser
-from plone.app.jsonfield import JSON
+from plone import schema as ps
 from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.supermodel import model
 from z3c.relationfield.schema import RelationChoice
-from zope import schema as zs
 from zope.interface import Invalid
 from zope.interface import invariant
 
@@ -33,12 +32,12 @@ class ITokenCodeBase(model.Schema):
         source=ObjPathSourceBinder(object_provides=IOAuth2Application.__identifier__),
         required=True
     )
-    scope = zs.List(
+    scope = ps.List(
         title=_('List of scopes'),
         required=False,
-        value_type=zs.TextLine()
+        value_type=ps.TextLine()
     )
-    expire_at = zs.Datetime(
+    expire_at = ps.Datetime(
         title=_('Token Expire Date'),
         required=True
     )
@@ -51,12 +50,12 @@ class ITokenCodeBase(model.Schema):
 
 class IJWTBearerToken(ITokenCodeBase):
     """ """
-    access_token = zs.TextLine(
+    access_token = ps.TextLine(
         title=_('Access token')
         )
-    refresh_token = zs.TextLine(
+    refresh_token = ps.TextLine(
         title=_('Refresh token')
         )
-    id_token = JSON(
+    id_token = ps.JSONField(
         title=_('ID Token')
         )

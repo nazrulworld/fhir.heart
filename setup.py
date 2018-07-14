@@ -20,18 +20,19 @@ long_description = '\n\n'.join([
 
 install_requires = [
     'six',
-    'plone.api',
-    'plone.restapi',
+    'plone.api>=1.8.4',
+    'plone.restapi>=3.2.1',
+    'fhirclient>=3.2.0',
+    'plone.schema>=1.2.0',
     'plone.app.fhirfield',
-    'plone.app.jsonfield',
+    'dexterity.membrane>=2.0.1',
+    'Products.membrane>=4.0.0',
     'plone.formwidget.contenttree',
     'plone.namedfile',
     'plone.formwidget.namedfile',
     'setuptools',
     'Products.GenericSetup>=1.8.2',
     'z3c.jbot',
-    'dexterity.membrane>=2.0',
-    'Products.membrane>=3.0.2',
     'oauthlib',
     'python-social-auth',
     'certifi',
@@ -40,7 +41,6 @@ install_requires = [
     'oic',
     'pysaml2',
     'pyjwkest',
-    'fhirclient',
     'collective.vdexvocabulary',
     'python-jose'
 ]
@@ -54,14 +54,13 @@ setup(
     description='Health Relationship Trust Profile (HEART) implementation for FHIR (Fast Healthcare Interoperability Resources) compliance '
     'for Healthcare System.',
     long_description=long_description,
-    # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    # Get more from https://pypi.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
         'Framework :: Plone',
-        'Framework :: Plone :: 4.3',
-        'Framework :: Plone :: 5.0',
         'Framework :: Plone :: 5.1',
+        'Framework :: Plone :: 5.2',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4',

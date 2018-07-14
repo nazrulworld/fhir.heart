@@ -4,16 +4,16 @@
 # @Link    : http://nazrul.me/
 # @Version : $Id$
 # All imports here
-from fhir.heart.i18n import _
+from dexterity.membrane.content.member import IEmail
+from fhir.heart import _
 from plone.app.fhirfield import FhirResource
-from plone.supermodel import model
 from zope import schema
 
 
 __author__ = 'Md Nazrul Islam (email2nazrul@gmail.com)'
 
 
-class IBaseUser(model.Schema):
+class IBaseUser(IEmail):
     """"Users based on administration resources.
     https://www.hl7.org/fhir/patient.html
     https://www.hl7.org/fhir/practitioner.html
@@ -23,10 +23,6 @@ class IBaseUser(model.Schema):
     )
     last_name = schema.TextLine(
         title=_('Last name')
-        )
-    email = schema.TextLine(
-        title=_('Email address'),
-        description=_('This email address will be used as login name')
         )
     mfa = schema.Choice(
         title=_('Multi-factor authentication (MFA)'),

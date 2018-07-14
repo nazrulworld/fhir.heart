@@ -5,13 +5,12 @@
 # @Version : $Id$
 # All imports here
 from dexterity.membrane.behavior.user import IMembraneUser
-from fhir.heart.i18n import _
-from plone.app.jsonfield.field import JSON
+from fhir.heart import _
+from plone import schema as ps
 from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
-from zope import schema as zs
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import provider
@@ -25,12 +24,12 @@ class IProvideOidConnectClaims(model.Schema):
     http://openid.net/specs/openid-connect-core-1_0.html#Claims
     """
 
-    sub = zs.TextLine(
+    sub = ps.TextLine(
         title=_('Subject'),
         required=False,
     )
 
-    name = zs.TextLine(
+    name = ps.TextLine(
         title=_('Full Name'),
         description=_(
             "End-User's full name in displayable form including all name parts, "
@@ -39,7 +38,7 @@ class IProvideOidConnectClaims(model.Schema):
         ),
         required=False,
     )
-    given_name = zs.TextLine(
+    given_name = ps.TextLine(
         title=_('First Name'),
         description=_(
             'Given name(s) or first name(s) of the End-User. Note that in some cultures, '
@@ -48,7 +47,7 @@ class IProvideOidConnectClaims(model.Schema):
         ),
         required=False
     )
-    family_name = zs.TextLine(
+    family_name = ps.TextLine(
         title=_('Last Name'),
         description=_(
             'Surname(s) or last name(s) of the End-User. Note that in some cultures, '
@@ -57,7 +56,7 @@ class IProvideOidConnectClaims(model.Schema):
         ),
         required=False
     )
-    middle_name = zs.TextLine(
+    middle_name = ps.TextLine(
         title=_('Middle Name'),
         description=_(
             'Middle name(s) of the End-User. Note that in some cultures, '
@@ -67,7 +66,7 @@ class IProvideOidConnectClaims(model.Schema):
         ),
         required=False
     )
-    nickname = zs.TextLine(
+    nickname = ps.TextLine(
         title=_('Nickname'),
         description=_(
             'Casual name of the End-User that may or may not be the same as the given_name. '
@@ -76,7 +75,7 @@ class IProvideOidConnectClaims(model.Schema):
         ),
         required=False
     )
-    preferred_username = zs.TextLine(
+    preferred_username = ps.TextLine(
         title=_('Username'),
         description=_(
             'Given name(s) or first name(s) of the End-User. Note that in some cultures, '
@@ -85,7 +84,7 @@ class IProvideOidConnectClaims(model.Schema):
         ),
         required=False
     )
-    profile = zs.URI(
+    profile = ps.URI(
         title=_('Profile URL'),
         description=_(
             "URL of the End-User\'s profile page. "
@@ -106,7 +105,7 @@ class IProvideOidConnectClaims(model.Schema):
         required=False
     )
 
-    website = zs.URI(
+    website = ps.URI(
         title=_('Website URL'),
         description=_(
             "URL of the End-User\'s Web page or blog. "
@@ -114,7 +113,7 @@ class IProvideOidConnectClaims(model.Schema):
             'the End-User or an organization that the End-User is affiliated with.'
         )
     )
-    email_verified = zs.Bool(
+    email_verified = ps.Bool(
         title=_('Id Email Verified'),
         description=_(
             'controlled by the End-User at the time the verification was performed. '
@@ -124,7 +123,7 @@ class IProvideOidConnectClaims(model.Schema):
         ),
         required=False
     )
-    gender = zs.Choice(
+    gender = ps.Choice(
         title=_('Gender'),
         description=_(
             "End-User's gender. Values defined by this specification are female and male. "
@@ -133,7 +132,7 @@ class IProvideOidConnectClaims(model.Schema):
         vocabulary='gender_options'
     )
 
-    birthdate = zs.Date(
+    birthdate = ps.Date(
         title=_('Birth Date'),
         description=_(
             str("End-User's birthday, represented as an ISO 8601:2004 [ISO8601‑2004] ").decode('utf-8') +
@@ -147,7 +146,7 @@ class IProvideOidConnectClaims(model.Schema):
         required=True
     )
 
-    zoneinfo = zs.Choice(
+    zoneinfo = ps.Choice(
         title=_('Time Zone'),
         description=_(
             'String from zoneinfo [zoneinfo] time zone database representing the '
@@ -157,7 +156,7 @@ class IProvideOidConnectClaims(model.Schema):
         required=False
     )
 
-    locale = zs.TextLine(
+    locale = ps.TextLine(
         title=_('Language'),
         description=_(
             str('End-User\'s locale, represented as a BCP47 [RFC5646] language tag. '
@@ -169,7 +168,7 @@ class IProvideOidConnectClaims(model.Schema):
         ),
         required=False
     )
-    phone_number = zs.TextLine(
+    phone_number = ps.TextLine(
         title=_('Phone Number'),
         description=_(
             'End-User\'s preferred telephone number. '
@@ -182,7 +181,7 @@ class IProvideOidConnectClaims(model.Schema):
         required=False
     )
 
-    phone_number_verified = zs.Bool(
+    phone_number_verified = ps.Bool(
         title=_('Id Phone Number Verified'),
         description=_(
             'True if the End-User\'s phone number has been verified; otherwise false. '
@@ -196,7 +195,7 @@ class IProvideOidConnectClaims(model.Schema):
         )
     )
 
-    address = JSON(
+    address = ps.JSONField(
         title=_('Address'),
         description=_(
             'End-User\'s preferred postal address. '
@@ -205,7 +204,7 @@ class IProvideOidConnectClaims(model.Schema):
         ),
         required=False
     )
-    updated_at = zs.Datetime(
+    updated_at = ps.Datetime(
         title=_('last update time'),
         description=_(
             'number Time the End-User\'s information was last updated. '

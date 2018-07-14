@@ -26,8 +26,8 @@ class FhirHeartLayer(PloneSandboxLayer):
         import plone.app.fhirfield
         self.loadZCML(package=plone.app.fhirfield)
 
-        import plone.app.jsonfield
-        self.loadZCML(package=plone.app.jsonfield)
+        import Products.membrane
+        self.loadZCML(package=Products.membrane)
 
         import dexterity.membrane
         self.loadZCML(package=dexterity.membrane)
@@ -36,6 +36,7 @@ class FhirHeartLayer(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         """ """
+        applyProfile(portal, 'Products.membrane:default')
         applyProfile(portal, 'dexterity.membrane:default')
         applyProfile(portal, 'plone.restapi:default')
         applyProfile(portal, 'fhir.heart:default')
