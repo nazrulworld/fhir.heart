@@ -5,21 +5,26 @@
 
   <!-- behavior -->
   <plone:behavior
-      marker="fhir.heart.interfaces.IFhirUser"
+
       title="OpenID Connect Claims"
       description="Use this content as a membrane user"
+      marker=".user.IOidConnectUser"
       provides=".user.IOidConnectClaims"
       factory=".user.OidConnectClaimsProvider"
-      for="dexterity.membrane.behavior.user.IMembraneUser"
+      for="fhir.heart.schema.user.IBaseUser"
   />
 
-  <plone:behavior
+  <!-- <plone:behavior
       title="FHIR HEART provided ID"
       description="generated unique id for dexterity content"
       marker="fhir.heart.interfaces.IFhirUser"
       provides=".id.IHeartIdChooser"
       factory=".id.HeartId"
       for="plone.dexterity.interfaces.IDexterityContent"
-  />
+  /> -->
+  <adapter
+    factory=".user.OidConnectUser"
+    provides=".user.IMembraneUserObject"
+    />
 
 </configure>

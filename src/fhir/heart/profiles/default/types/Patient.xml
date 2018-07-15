@@ -38,7 +38,7 @@
      <element value="dexterity.membrane.behavior.user.INameFromFullName" />
      <element value="dexterity.membrane.behavior.user.IMembraneUser" />
      <element value="dexterity.membrane.behavior.password.IProvidePasswords" />
-     <!-- <element value="fhir.heart.behavior.user.IOidConnectClaims"/> -->
+     <element value="fhir.heart.behavior.user.IOidConnectClaims"/>
      <!-- <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" /> -->
   </property>
 

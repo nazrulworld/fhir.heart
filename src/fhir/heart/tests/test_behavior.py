@@ -22,7 +22,7 @@ class TestBehavior(unittest.TestCase):
         """ """
         self.portal = self.layer['portal']
 
-    def offtest_defined_behaviors(self):
+    def test_defined_behaviors(self):
         """Auto Behavior Name::
 
             >>> from fhir.heart.behavior.user import IOidConnectClaims
@@ -32,11 +32,11 @@ class TestBehavior(unittest.TestCase):
             >>> print  IHeartIdChooser.__identifier__
             fhir.heart.behavior.id.IHeartIdChooser
         """
-        oid_connection_claims = queryUtility(IBehavior, name='fhir.heart.behavior.user.IOidConnectClaims')
+        oid_connection_claims = queryUtility(IBehavior, name='fhir.heart.behavior.user.IOidConnectUser')
         self.assertIsNotNone(oid_connection_claims)
 
-        id_chooser = queryUtility(IBehavior, name='fhir.heart.behavior.id.IHeartIdChooser')
-        self.assertIsNotNone(id_chooser)
+        # id_chooser = queryUtility(IBehavior, name='fhir.heart.behavior.id.IHeartIdChooser')
+        # self.assertIsNotNone(id_chooser)
 
     def offtest_supports(self):
         """ """

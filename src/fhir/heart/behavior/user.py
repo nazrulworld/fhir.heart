@@ -14,9 +14,15 @@ from plone.supermodel import model
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import provider
+from zope.interface import Interface
+from Products.membrane.interfaces import IMembraneUserObject
 
 
 __author__ = 'Md Nazrul Islam (email2nazrul@gmail.com)'
+
+
+class IOidConnectUser(Interface):
+    """Marker/Form interface for Membrane User"""
 
 
 class IProvideOidConnectClaims(model.Schema):
@@ -239,7 +245,7 @@ class IOidConnectClaims(IProvideOidConnectClaims):
 
 
 @implementer(IProvideOidConnectClaims)
-@adapter(IMembraneUser)
+@adapter(IOidConnectUser)
 class OidConnectClaimsProvider(object):
 
     def __init__(self, context):
@@ -249,7 +255,7 @@ class OidConnectClaimsProvider(object):
     @property
     def sub(self):
         """ """
-        return IMembraneUser(self.context).getUserId()
+        return IMembraneUserObject(self.context).getUserId()
 
     @sub.setter
     def sub(self, value):
@@ -260,36 +266,200 @@ class OidConnectClaimsProvider(object):
         )
 
     @property
+    def preferred_username(self):
+        """ """
+        return self.context.preferred_username or \
+            IMembraneUserObject(self.context).getUserName()
+
+    @preferred_username.setter
+    def preferred_username(self, value):
+        """ """
+        self.context.preferred_username = value
+
+    @property
+    def middle_name(self):
+        """ """
+        return self.context.middle_name
+
+    @middle_name.setter
+    def middle_name(self, value):
+        """ """
+        self.context.middle_name = value
+
+    @property
     def name(self):
-        return IMembraneUser(self.context).get_full_name()
+        return self.context.name or \
+            IMembraneUserObject(self.context).get_full_name()
+
+    @name.setter
+    def name(self, value):
+        """ """
+        self.context.name = value
 
     @property
     def given_name(self):
         """ """
-        return self.context.first_name
+        return self.context.given_name or \
+            self.context.first_name
 
     @given_name.setter
     def given_name(self, value):
         """ """
-        self.context.first_name = value
+        self.context.given_name = value
 
     @property
     def family_name(self):
         """ """
-        return self.context.last_name
+        return self.context.family_name or \
+            self.context.last_name
 
     @family_name.setter
     def family_name(self, value):
         """ """
-        self.context.last_name = value
+        self.context.family_name = value
+
+    @property
+    def nickname(self):
         """ """
+        return self.context.nickname
+
+    @nickname.setter
+    def nickname(self, value):
+        """ """
+        self.context.nickname = value
+
+    @property
+    def profile(self):
+        """ """
+        return self.context.profile
+
+    @profile.setter
+    def profile(self, value):
+        """ """
+        self.context.profile = value
+
+    @property
+    def picture(self):
+        """ """
+        return self.context.picture
+
+    @picture.setter
+    def picture(self, value):
+        """ """
+        self.context.picture = value
+
+    @property
+    def website(self):
+        return self.context.website
+
+    @website.setter
+    def website(self, value):
+        """ """
+        self.context.website = value
+
+    @property
+    def email_verified(self):
+        return self.context.email_verified
+
+    @email_verified.setter
+    def email_verified(self, value):
+        """ """
+        self.context.email_verified = value
+
+    @property
+    def gender(self):
+        """ """
+        self.context.gender
+
+    @gender.setter
+    def gender(self, value):
+        """ """
+        self.context.gender = value
+
+    @property
+    def birthdate(self):
+        """ """
+        return self.context.birthdate
+
+    @birthdate.setter
+    def birthdate(self, value):
+        """ """
+        self.context.birthdate = value
+
+    @property
+    def zoneinfo(self):
+        """ """
+        return self.context.zoneinfo
+
+    @zoneinfo.setter
+    def zoneinfo(self, value):
+        """ """
+        self.context.zoneinfo = value
+
+    @property
+    def locale(self):
+        """ """
+        return self.context.locale
+
+    @locale.setter
+    def locale(self, value):
+        """ """
+        self.context.locale = value
+
+    @property
+    def phone_number(self):
+        """ """
+        return self.context.phone_number
+
+    @phone_number.setter
+    def phone_number(self, value):
+        """ """
+        self.context.phone_number = value
+
+    @property
+    def phone_number_verified(self):
+        """ """
+        return self.context.phone_number_verified
+
+    @phone_number_verified.setter
+    def phone_number_verified(self, value):
+        self.context.phone_number_verified = value
+
+    @property
+    def address(self):
+        """ """
+        return self.context.address
+
+    @address.setter
+    def address(self, value):
+        """ """
+        self.context.address = value
 
     @property
     def updated_at(self):
         """ """
-        return getattr(self.context, 'modified', None)
+        return self.context.updated_at or \
+            self.context.modified
 
     @updated_at.setter
     def updated_at(self, value):
         """ """
-        self.context.modified_on = value
+        self.context.updated_at = value
+
+
+@implementer(IMembraneUserObject)
+@adapter(IOidConnectUser)
+class OidConnectUser(object):
+    """ """
+
+    def __init__(self, context):
+        """ """
+        self.context = context
+
+    def getUserId(self):
+        """ """
+        return IMembraneUser(self.context).getUserId()
+
+    def getUserName(self):
+        """ """
+        return IMembraneUser(self.context).getUserName()

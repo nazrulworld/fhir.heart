@@ -7,7 +7,7 @@
   <i18n:registerTranslations directory="locales" />
 
   <include package=".browser" />
-  <!-- <include package=".behavior" /> -->
+  <include package=".behavior" />
   <include zcml:condition="installed AccessControl.security" file="permissions.zcml" />
   <include  file="profiles.zcml" />
   <include file="vocabularies.zcml" />

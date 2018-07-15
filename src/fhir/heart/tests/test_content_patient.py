@@ -66,7 +66,8 @@ class OrganizationIntegrationTest(BaseIntegrationTest):
             'email': 'test@example.com',
             'username': 'test@example.com',
             'password': '12345',
-            'confirm_password': '12345'
+            'confirm_password': '12345',
+            'patient_resource': json_file
 
         }
         json_file = FHIR_RESOURCE_DIRECTORY / 'Patient' / 'Patient.json'
