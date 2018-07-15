@@ -16,7 +16,7 @@ __author__ = 'Md Nazrul Islam (email2nazrul@gmail.com)'
 class IOrganization(model.Schema):
     """"Organization resource.
     https://www.hl7.org/fhir/organization.html"""
-    resource = FhirResource(
+    organization_resource = FhirResource(
         title=_('FHIR JSON'),
         resource_type='Organization',
         model_interface='plone.app.fhirfield.interfaces.IFhirResourceModel',
@@ -27,7 +27,7 @@ class IOrganization(model.Schema):
 class IHealthcareService(model.Schema):
     """"HealthcareService resource.
     https://www.hl7.org/fhir/healthcareservice.html"""
-    resource = FhirResource(
+    healthcareservice_resource = FhirResource(
         title=_('FHIR JSON'),
         resource_type='HealthcareService',
         model_interface='plone.app.fhirfield.interfaces.IFhirResourceModel',

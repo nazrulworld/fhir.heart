@@ -6,6 +6,7 @@ from plone.api.validation import at_least_one_of
 from plone.api.validation import mutually_exclusive_parameters
 from plone.api.validation import required_parameters
 from Products.CMFCore.utils import getToolByName
+from zope.schema import getFields
 
 import six
 import time
@@ -101,3 +102,33 @@ def get_user_id(username=None, user=None):
         userid = user.getId()
 
     return userid
+
+
+@at_least_one_of('obj', 'portal_type')
+@mutually_exclusive_parameters('obj', 'portal_type')
+def get_fhir_field(obj=None, portal_type=None):
+    """Extract FHIR field's value from object """
+
+    if obj:
+        fhir_field_name = '{0}_resource'.format(obj.getTypeInfo().getId().lower())
+        fields = getFields(obj.getTypeInfo().lookupSchema())
+    elif portal_type:
+        fhir_field_name = '{0}_resource'.format(portal_type.lower())
+        fti = api.portal.get_tool('portal_types').get(portal_type, None)
+        assert fti is not None
+        fields = getFields(fti.lookupSchema())
+
+    fhir_field = fields.get(fhir_field_name, None)
+    if fhir_field is None:
+        fhir_field = fields.get('resource')
+
+    # make sure fhir field should exists
+    return fhir_field
+
+
+@required_parameters('obj')
+def get_fhir_value(obj):
+    """Extract FHIR field's value from object """
+    fhir_field = get_fhir_field(obj)
+
+    return getattr(obj, fhir_field.getName())

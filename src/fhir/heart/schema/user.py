@@ -33,7 +33,7 @@ class IBaseUser(IEmail):
 
 class IPatient(IBaseUser):
     """" """
-    resource = FhirResource(
+    patient_resource = FhirResource(
         title=_('Patient'),
         resource_type='Patient',
         model_interface='plone.app.fhirfield.interfaces.IFhirResourceModel',
@@ -43,7 +43,7 @@ class IPatient(IBaseUser):
 
 class IPractitioner(IBaseUser):
     """" """
-    resource = FhirResource(
+    practitioner_resource = FhirResource(
         title=_('Practitioner'),
         resource_type='Practitioner',
         model_interface='plone.app.fhirfield.interfaces.IFhirResourceModel',
@@ -53,7 +53,7 @@ class IPractitioner(IBaseUser):
 
 class IPerson(IBaseUser):
     """" """
-    resource = FhirResource(
+    person_resource = FhirResource(
         title=_('Person'),
         resource_type='Person',
         model_interface='plone.app.fhirfield.interfaces.IFhirResourceModel',

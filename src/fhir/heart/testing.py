@@ -56,6 +56,12 @@ FHIR_HEART_FUNCTIONAL_TESTING = FunctionalTesting(
     name='FhirHeartLayer:FunctionalTesting'
 )
 
+FHIR_HEART_REST_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(
+        FHIR_HEART_FIXTURE,
+        z2.ZSERVER_FIXTURE),
+    name='FhirHeartLayer:RestFunctionalTesting'
+)
 
 FHIR_HEART_ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(
