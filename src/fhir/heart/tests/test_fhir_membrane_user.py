@@ -46,18 +46,18 @@ class FhirMembraneUserIntegrationTest(BaseIntegrationTest):
             title=' '.join(fhir_json['name'][0]['given']),
             safeid=False,
             )
-        import pdb;pdb.set_trace()
         data = dict(
             email='one@example.com',
             password='12345',
             confirm_password='12345',
             first_name='First Patient',
             last_name='Krogh',
+            gender='male',
+            birthdate='2001-09-18',
             patient_resource=fhir_json)
 
         request = self.portal.REQUEST.clone()
         request['BODY'] = json.dumps(data)
-
         deserializer = queryMultiAdapter((patient, request), IDeserializeFromJson)
         deserializer(validate_all=True)
 

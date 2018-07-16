@@ -4,8 +4,8 @@
 # @Link    : http://nazrul.me/
 # @Version : $Id$
 # All imports here
-from dexterity.membrane.behavior.user import IMembraneUser
 from fhir.heart import _
+from fhir.heart.utils import force_unicode
 from plone import schema as ps
 from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
@@ -117,7 +117,8 @@ class IProvideOidConnectClaims(model.Schema):
             "URL of the End-User\'s Web page or blog. "
             'This Web page SHOULD contain information published by '
             'the End-User or an organization that the End-User is affiliated with.'
-        )
+        ),
+        required=False
     )
     email_verified = ps.Bool(
         title=_('Id Email Verified'),
@@ -198,7 +199,8 @@ class IProvideOidConnectClaims(model.Schema):
             'trust framework or contractual agreements within which the parties are operating. '
             'When true, the phone_number Claim MUST be in E.164 format and any extensions MUST '
             'be represented in RFC 3966 format'
-        )
+        ),
+        required=False
     )
 
     address = ps.JSONField(
@@ -255,7 +257,7 @@ class OidConnectClaimsProvider(object):
     @property
     def sub(self):
         """ """
-        return IMembraneUserObject(self.context).getUserId()
+        return force_unicode(IMembraneUserObject(self.context).getUserId())
 
     @sub.setter
     def sub(self, value):
@@ -439,7 +441,7 @@ class OidConnectClaimsProvider(object):
     def updated_at(self):
         """ """
         return self.context.updated_at or \
-            self.context.modified
+            self.context.modified().asdatetime()
 
     @updated_at.setter
     def updated_at(self, value):
@@ -455,11 +457,3 @@ class OidConnectUser(object):
     def __init__(self, context):
         """ """
         self.context = context
-
-    def getUserId(self):
-        """ """
-        return IMembraneUser(self.context).getUserId()
-
-    def getUserName(self):
-        """ """
-        return IMembraneUser(self.context).getUserName()
